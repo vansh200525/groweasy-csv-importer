@@ -38,10 +38,10 @@ export default function UploadDropzone({ onFileSelected, error }: Props) {
           handleFiles(e.dataTransfer.files);
         }}
         onClick={() => inputRef.current?.click()}
-        className={`cursor-pointer rounded-2xl border-2 border-dashed p-12 text-center transition-colors ${
+        className={`cursor-pointer rounded-2xl border-2 border-dashed p-12 text-center transition-all ${
           isDragging
-            ? "border-brand-500 bg-brand-50"
-            : "border-gray-300 bg-white hover:border-brand-400 hover:bg-brand-50/40"
+            ? "scale-[1.01] border-brand-500 bg-brand-50 dark:bg-brand-900/20"
+            : "border-gray-300 bg-white hover:border-brand-400 hover:bg-brand-50/40 dark:border-gray-700 dark:bg-gray-900 dark:hover:border-brand-500 dark:hover:bg-brand-900/10"
         }`}
       >
         <input
@@ -67,17 +67,17 @@ export default function UploadDropzone({ onFileSelected, error }: Props) {
             />
           </svg>
         </div>
-        <p className="text-base font-semibold text-gray-800">
+        <p className="text-base font-semibold text-gray-800 dark:text-gray-100">
           Drop your CSV file here
         </p>
-        <p className="mt-1 text-sm text-gray-500">or click to browse files</p>
-        <p className="mt-4 text-xs text-gray-400">
+        <p className="mt-1 text-sm text-gray-500 dark:text-gray-400">or click to browse files</p>
+        <p className="mt-4 text-xs text-gray-400 dark:text-gray-500">
           Any CSV layout works — Facebook Ads, Google Ads, Excel exports, CRM
           exports, and more.
         </p>
       </div>
       {error && (
-        <p className="mt-3 text-sm font-medium text-red-600">{error}</p>
+        <p className="mt-3 text-sm font-medium text-red-600 dark:text-red-400">{error}</p>
       )}
     </div>
   );
