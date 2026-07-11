@@ -15,7 +15,7 @@ export default function DataTable({
 }: Props) {
   if (rows.length === 0) {
     return (
-      <div className="rounded-xl border border-gray-200 bg-white p-8 text-center text-sm text-gray-500">
+      <div className="rounded-xl border border-gray-200 bg-white p-8 text-center text-sm text-gray-500 dark:border-gray-800 dark:bg-gray-900 dark:text-gray-400">
         {emptyMessage}
       </div>
     );
@@ -23,16 +23,16 @@ export default function DataTable({
 
   return (
     <div
-      className="overflow-auto rounded-xl border border-gray-200 bg-white shadow-sm"
+      className="overflow-auto rounded-xl border border-gray-200 bg-white shadow-sm dark:border-gray-800 dark:bg-gray-900"
       style={{ maxHeight }}
     >
       <table className="min-w-full border-collapse text-sm">
-        <thead className="sticky top-0 z-10 bg-gray-100">
+        <thead className="sticky top-0 z-10 bg-gray-100 dark:bg-gray-800">
           <tr>
             {columns.map((col) => (
               <th
                 key={col}
-                className="whitespace-nowrap border-b border-gray-200 px-4 py-3 text-left font-semibold text-gray-700"
+                className="whitespace-nowrap border-b border-gray-200 px-4 py-3 text-left font-semibold text-gray-700 dark:border-gray-700 dark:text-gray-200"
               >
                 {col}
               </th>
@@ -44,17 +44,17 @@ export default function DataTable({
             <tr
               key={i}
               className={`${
-                i % 2 === 0 ? "bg-white" : "bg-gray-50/60"
-              } hover:bg-brand-50/50`}
+                i % 2 === 0 ? "bg-white dark:bg-gray-900" : "bg-gray-50/60 dark:bg-gray-800/40"
+              } hover:bg-brand-50/50 dark:hover:bg-brand-900/20`}
             >
               {columns.map((col) => (
                 <td
                   key={col}
-                  className="max-w-[260px] truncate whitespace-nowrap border-b border-gray-100 px-4 py-2.5 text-gray-700"
+                  className="max-w-[260px] truncate whitespace-nowrap border-b border-gray-100 px-4 py-2.5 text-gray-700 dark:border-gray-800 dark:text-gray-300"
                   title={String(row[col] ?? "")}
                 >
                   {String(row[col] ?? "") || (
-                    <span className="text-gray-300">—</span>
+                    <span className="text-gray-300 dark:text-gray-600">—</span>
                   )}
                 </td>
               ))}
